@@ -1,0 +1,46 @@
+
+class Node:
+  def __init__(self,value) :
+     self.info = value
+     self.link = None 
+
+
+class SingleLinkedList:
+   def __init__(self):
+      self.start = None
+
+
+   def display_list(self):
+      if self.start is None:
+      	print("the list is empty")
+      	return
+      else:
+         print("List is : ")
+         p = self.start 	
+         while p is not None:
+         	print(p.info , "  ")
+         	p =  p.link 
+         print() 	
+
+
+   def count_nodes(self):
+      p = self.start
+      n = 0
+      if p is not None: 
+        n+=1
+        p = p.link
+      print("the number of node is = " ,n)	
+
+
+   def search(self,x):
+      p = self.start
+      position = 1
+      while p is not None:
+    	if p.info == x:
+    		print(x , " is at position ", position)
+    		return True
+    	position+= 1
+    	p = p.link
+      else : 
+    	   print(x, " not  found in the list")
+           return False	
