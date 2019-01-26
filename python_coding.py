@@ -37,6 +37,7 @@ def rotate_left3(nums):
   for i  in range (1,len(nums)):
     nums[i-1] = nums[i]
   nums[len(nums)-1]  = first
+	
 
 
 
@@ -72,3 +73,28 @@ def make_chocolate(small, big, goal):
         return remainder
         
     return -1
+
+
+/*** Plus 1******/
+
+class Solution(object):
+    def plusOne(self, digits):
+       if digits[-1] < 9 :
+        digits[-1] = digits[-1] + 1
+       else:
+        if len(digits) == 1:
+            digits = [1,0]
+        else:
+            digits = self.plusOne(digits[:-1]) + [0]
+       return digits   
+
+/**********************************************************/
+/*****finonacci appt******************/
+
+def F(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else: return F(n-1)+F(n-2)
+/************************************/
+
+	
