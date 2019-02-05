@@ -97,4 +97,12 @@ def F(n):
     else: return F(n-1)+F(n-2)
 /************************************/
 
-	
+/****power of 2 ***********/	
+def is_power(n):
+    n = n/2
+    if n == 2:
+        return True
+    elif n > 2:
+        is_power(n)
+    else:
+        return False
