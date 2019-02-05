@@ -106,3 +106,17 @@ def is_power(n):
         is_power(n)
     else:
         return False
+
+/**** palindrome of  alinked list******/
+
+def isPalindrome(self, head):
+    """
+    :type head: ListNode
+    :rtype: bool
+    """
+    res = []
+    while head is not None:
+        res.append(str(head.val)) 
+        head = head.next
+    return res == res[::-1]
+
