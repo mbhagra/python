@@ -103,7 +103,7 @@ def is_power(n):
     if n == 2:
         return True
     elif n > 2:
-        is_power(n)
+       return is_power(n)
     else:
         return False
 
@@ -119,4 +119,39 @@ def isPalindrome(self, head):
         res.append(str(head.val)) 
         head = head.next
     return res == res[::-1]
+
+/***** Add Digits   *****/
+
+def digital_root(n):
+    x = sum(int(digit) for digit in str(n))
+    if x < 10:
+        return x
+    else:
+          return digital_root(x)  
+
+/***** Ugly Numberwhose prime factors only include 2, 3, 5 ******/
+def is_ugly(num):
+        if num == 0:
+            return False
+        for i in [2, 3, 5]:
+            while num % i == 0:
+                num /= i
+        return num == 1
+
+/**** Is power of 3 ******/
+def is_power_3(n):
+    n = n/3
+    if n == 3:
+        return True
+    elif n > 3:
+       return is_power_3(n)
+    else:
+        return False
+
+/***Reverse vowels in a given string***/
+
+One simple solution is to store all the vowels while scanning the string and placing the vowels in the reverse order in another iteration of string.
+
+
+
 
