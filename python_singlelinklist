@@ -44,3 +44,218 @@ class SingleLinkedList:
       else : 
     	   print(x, " not  found in the list")
            return False	
+
+
+/*************************************************************************************************************/
+
+/***********Single link lists**********/
+
+
+class Node:
+  def __init__(self, value):
+      self.info = value
+      self.link = None
+
+class SingleLinkedList:
+  def __init__(self):
+     self.start =  None
+
+1.
+   def display_list(self):
+
+     if self.start is None:
+         print(“list is empty”)
+         return
+     else: 
+          p = self.start 
+
+           while p is not  None:
+           print(“link list value {}”.format(p.info))
+           p = p.link
+           print()
+
+  
+2.   
+     def count_nodes(self):
+
+            if self.start is None:
+                print(“list is empty”)
+                return 0
+            else: 
+                 n = 0
+                 p = self.start 
+
+                 while p is not  None:
+                     print(“link list value {}”.format(p.info))
+                     p = p.link
+                     n = n + 1
+               return n
+
+
+
+3. 
+        def search(self, x):
+
+            if self.start is None:
+                print(“list is empty”)
+                return 0
+            else: 
+                position = 1
+                 p = self.start 
+
+                 while p is not  None:
+                     if ( p.info == x):
+                        print(“the position of {} is {}”.format(x, position)
+                        return True
+                      position = position + 1
+                      p = p.link
+                  else:
+                     print(“the element {} is not found”.format(x))
+                     return False
+
+
+4. 
+
+    def insert_in_beginning(self, data):
+        temp = Node(data)
+        temp.link = self.start
+       self.start = temp
+
+
+def insert_at_end(self, data):
+      temp = Node(data)
+     if self.start is None:
+      self.start = temp
+        return
+
+     p = self.start
+    while p.link is not None:
+        p = p.link
+    p.link = temp
+
+
+5. def insert_after(self, data, x):
+    p = self.start
+     
+    while p is not None:
+     if p.info == x:
+       break
+     p = p.llink
+
+    if  p is None:
+      print(“ the element {} is not present in the list”.format(x))
+
+     temp = node(data)
+     temp.link = p.link
+     p.link = temp
+
+
+6. def insert_before(self, data, x):
+       if x == self.start.info:
+         temp = Node(data)
+         temp.link = self.start
+         self.start = temp
+         return 
+
+        p = self.start
+        while p.link is not None:
+           if p.ilink.nfo == x:
+             break   
+           p = p.link
+
+        if p.link is None:
+          print(“element {} not present”.format(x))
+        else:
+            temp = Node(data)
+            temp.link  = p.link
+             p.link = temp
+
+7. def delete_first_node(self):
+       if self.start is None:
+          print(“The list is empty”)
+          return
+       else:
+          self.start.link = self.start
+
+
+8. def reverse_list(self):
+      prev= None
+      p = self.start
+     while p is not None:
+       next = p.link
+       p.link = prev
+      prev = p
+      p = next 
+   self.start = prev
+
+
+9. bubble sort based on data 
+
+  def bubble_sort_data(self):
+   end = None
+  while ( end != self.start.link):
+      p = self.start
+      while ( p.link != end):
+            q = p.link
+            if p.info > q.info:
+            (p.info,q.info) = (q.info,p.info)
+             p = p.link
+      end = p
+
+
+10.  def divide_list(self, p):
+         p = self.start
+        q = p.linl.link
+
+    /*** for equal and not equal parts****/
+        while q is not None and q.link is not None:
+           p = p.link
+          q = q.link.lnk
+      start2 = p.link
+     p.link = None
+
+11 def has_cycle(self):
+       if self.find_cycle() is None:
+          return False
+       else:
+          return True
+
+12. def find_cycle(self):
+     slowR = self.start
+     fastR  = slowR.link.link
+
+    if fastR is not None and fastR.link is not None:
+       slowR= slowR.link
+       fastR= fastR.link.link
+       if slowR == fastR:
+         return slowR
+     return None
+
+/************double link list*******************/
+
+
+class Node:
+  def __init__(self, value):
+      self.info = value
+      self.prev = None
+      self.next = None
+
+class SingleLinkedList:
+  def __init__(self):
+     self.start =  None
+
+1.
+   def display_list(self):
+
+     if self.start is None:
+         print(“list is empty”)
+         return
+     else: 
+          p = self.start 
+
+           while p is not  None:
+           print(“link list value {}”.format(p.info))
+           p = p.next
+           print()
+
+/***** circular link list ******/
