@@ -195,4 +195,21 @@ def intersection(num1,num2):
 
   return res
 
+/****Intersection of Two Arrays II *****/
+Each element in the result should appear as many times as it shows in both arrays.
 
+from collections import Counter
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        c1, c2 = Counter(nums1), Counter(nums2)
+        result = []
+        for k1 in c1:
+            if k1 in c2:
+                rf = min(c1[k1], c2[k1])
+                result.extend([k1]*rf)
+        return result
