@@ -152,6 +152,47 @@ def is_power_3(n):
 
 One simple solution is to store all the vowels while scanning the string and placing the vowels in the reverse order in another iteration of string.
 
+# Reverse Vowels of a String
+from pythonds.basic.stack import Stack
 
+def reverse_string_vowel(rev_str):
+ new_list = []
+ new_stack = Stack()
+
+ for i in rev_str:
+   if i.lower() in ['a', 'e','i','o','u']:
+     new_stack.push(i)
+
+ for i in rev_str:
+    
+   if i.lower()  in ['a', 'e','i','o','u']:
+    new_list.append(new_stack.pop())
+   else:
+    new_list.append(i)
+ new_str = ''.join(new_list)  
+ return new_str
+
+/***** intersection of two arrays*****/
+# intersection of two arrays
+
+def intersection(num1,num2):
+  """
+  :type num1:list
+  :type num2:list
+  :return list
+  """
+  res = []
+  cache = {}
+
+  for x in num1:
+    if x  not in cache:
+      cache[x] = True
+
+  for x in num2:
+    if x in cache:
+      res.append(x)
+      del cache[x]
+
+  return res
 
 
