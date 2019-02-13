@@ -235,3 +235,8 @@ def max_integer(num):
   else:
     return  num[len_nums-1] 
 	
+/*****number of segments in a string*****/
+
+def num_of_segments(str1):
+  new_list = str1.split(" ")
+  return len(new_list)
