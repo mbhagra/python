@@ -213,3 +213,25 @@ class Solution(object):
                 rf = min(c1[k1], c2[k1])
                 result.extend([k1]*rf)
         return result
+
+/****** find the string difference ******/
+
+def find_difference(str1,str2):
+  for i in str2:
+    if i in str1:
+      continue
+    else:
+      break
+  return i       
+       
+/***** find the  3rd max integer or if it doesn't exist then the max integer *****/
+
+def max_integer(num):
+  num.sort()
+  len_nums = len(num)
+
+  if len_nums == 3:
+    return num[2]
+  else:
+    return  num[len_nums-1] 
+	
