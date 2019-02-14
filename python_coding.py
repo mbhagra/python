@@ -240,3 +240,54 @@ def max_integer(num):
 def num_of_segments(str1):
   new_list = str1.split(" ")
   return len(new_list)
+
+/****** Fibonnacci numbers *******/
+
+def Fibonacci(n):
+  if n == 0:
+    return  0
+  elif n == 1:
+    return 1
+  else:
+    return   Fibonacci(n-1) +  Fibonacci(n-2) 
+
+
+/***** K-diff Pairs in an Array*************/
+
+
+
+ def findPairs(self, nums, k):
+        if k < 0 or len(nums)==0: return 0
+        count_dict, count = {}, 0
+        
+        for num in nums:
+            count_dict[num] = count_dict.get(num,0) + 1
+						
+        for key in count_dict:
+            if k:
+                if key + k in count_dict: count += 1
+            else:
+                if count_dict[key] >= 2: count += 1
+        return count
+
+/*****palindrome part 2 , by removing one char ******/
+
+class Solution:
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        left = 0
+        right = len(s)-1
+        if not s == s[::-1]:
+            while left < right:
+                if s[left] == s[right]:
+                    left += 1
+                    right -= 1
+                else:
+                    str1 = s[:left] + s[left+1:]
+                    str2 = s[:right] + s[right+1:]
+                    return str1 == str1[::-1] or str2 == str2[::-1]
+        else:
+            return True
