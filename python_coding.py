@@ -291,3 +291,29 @@ class Solution:
                     return str1 == str1[::-1] or str2 == str2[::-1]
         else:
             return True
+
+/****************** Missing Number **************************************************/
+a=[1,2,3,4,5,7,8,9,10]
+n = len(a) + 1
+(n*(n+1)/2) - sum(a)
+
+Or n = a[-1]
+
+Explanation:
+
+sum of numbers from 0 to n is given by the formula: expectedSum = n(n+1)/2
+
+The actual sum is found by adding all the elements in the array. In the above code this is performed by using the inbuilt python function sum.
+
+Now, the missing number is expectedSum - actualSum.
+
+/**** Move Zeroes******/
+Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+def move_zeros(n):
+  count = n.count(0)
+  n = [e for e in n if e not in [0]]
+  for i in range(count):
+    n.append(0)
+  print(n)
+/***********************************************************************************************/	
+	
