@@ -317,3 +317,202 @@ def move_zeros(n):
   print(n)
 /***********************************************************************************************/	
 	
+268. Missing Number
+a=[1,2,3,4,5,7,8,9,10]
+n = len(a) + 1
+(n*(n+1)/2) - sum(a)
+
+Or n = a[-1]
+
+Explanation:
+
+sum of numbers from 0 to n is given by the formula: expectedSum = n(n+1)/2
+
+The actual sum is found by adding all the elements in the array. In the above code this is performed by using the inbuilt python function sum.
+
+Now, the missing number is expectedSum - actualSum.
+
+/**** Move Zeroes******/
+Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+def move_zeros(n):
+  count = n.count(0)
+  n = [e for e in n if e not in [0]]
+  for i in range(count):
+    n.append(0)
+  print(n) 
+
+/****************************************************************program creek puzzles*****************************************************/
+
+
+# Python program to right rotate a list by n 
+  
+# Returns the rotated list 
+def rightRotate(lists, num): 
+    output_list = [] 
+      
+    # Will add values from n to the new list 
+    for item in range(len(lists) - num, len(lists)): 
+        output_list.append(lists[item]) 
+      
+    # Will add the values before 
+    # n to the end of new list     
+    for item in range(0, len(lists) - num):  
+        output_list.append(lists[item])
+—————————————————————————————————————————————————————————————————
+/***** reverse the words in the string ******************/def reversewords(str):
+        list = str.split(" ")
+        list.reverse()
+        new_str = " ".join(list)
+        return new_str
+/**********************************************************************************/
+/*** nth smallest element *****/
+
+def kthSmallest(arr, n, k): 
+  
+    # Sort the given array  
+    arr.sort() 
+  
+    # Return k'th element in the  
+    # sorted array  
+    return arr[k-1] 
+
+/**********************************************************************/
+
+/*****merge intervals******************/
+    def merge(self, intervals):
+        res = []    # result list
+         
+        if len(intervals)==0:
+            return res
+         
+        #sort list according to the start value    
+        intervals.sort(key=lambda x:x.start)
+         
+        res.append(intervals[0])
+         
+        #scan the list
+        for i in xrange(1,len(intervals)):
+            cur = intervals[i]
+            pre = res[-1]
+            #check if current interval intersects with previous one
+            if cur.start <= pre.end:
+                res[-1].end = max(pre.end, cur.end) #merge
+            else:
+                res.append(cur) #insert
+                 
+        return res
+
+/********************************************************************/
+/***Two Sum - Find two numbers such that they add up to a specific target number*******/
+def twosum(nums,k):
+      diff = 0
+      for i in range(len(nums)):
+        diff =  k -nums[i]
+        if diff in nums:
+          break
+      print(i)
+      print(nums.index(diff)) 
+
+
+/******************************************************************/
+
+Merge sorted array 
+
+def mergeArrays(arr1, arr2, n1, n2): 
+    arr3 = [None] * (n1 + n2) 
+    i = 0
+    j = 0
+    k = 0
+  
+    # Traverse both array 
+    while i < n1 and j < n2: 
+      
+        # Check if current element  
+        # of first array is smaller  
+        # than current element of  
+        # second array. If yes,  
+        # store first array element  
+        # and increment first array 
+        # index. Otherwise do same  
+        # with second array 
+        if arr1[i] < arr2[j]: 
+            arr3[k] = arr1[i] 
+            k = k + 1
+            i = i + 1
+        else: 
+            arr3[k] = arr2[j] 
+            k = k + 1
+            j = j + 1
+      
+  
+    # Store remaining elements 
+    # of first array 
+    while i < n1: 
+        arr3[k] = arr1[i]; 
+        k = k + 1
+        i = i + 1
+  
+    # Store remaining elements  
+    # of second array 
+    while j < n2: 
+        arr3[k] = arr2[j]; 
+        k = k + 1
+        j = j + 1
+    print("Array after merging") 
+    for i in range(n1 + n2): 
+        print(str(arr3[i]), end = " ") 
+
+/*******************************************************************************************************/
+
+Balanced parenthesis
+
+from pythonds.basic.stack import Stack
+
+def parChecker(symbolString):
+    s = Stack()
+    balanced = True
+    index = 0
+    while index < len(symbolString) and balanced:
+        symbol = symbolString[index]
+        if symbol == "(":
+            s.push(symbol)
+        else:
+            if s.isEmpty():
+                balanced = False
+            else:
+                s.pop()
+
+        index = index + 1
+
+    if balanced and s.isEmpty():
+        return True
+    else:
+        return False
+/******************************************************************************************************/
+Multiple balanced parentheses 
+
+   # Also makes adding more types of parenthesis easier
+        mapping = {")": "(", "}": "{", "]": "["}
+
+        # For every bracket in the expression.
+        for char in s:
+
+            # If the character is an closing bracket
+            if char in mapping:
+
+                # Pop the topmost element from the stack, if it is non empty
+                # Otherwise assign a dummy value of '#' to the top_element variable
+                top_element = stack.pop() if stack else '#'
+
+                # The mapping for the opening bracket in our hash and the top
+                # element of the stack don't match, return False
+                if mapping[char] != top_element:
+                    return False
+            else:
+                # We have an opening bracket, simply push it onto the stack.
+                stack.append(char)
+
+        # In the end, if the stack is empty, then we have a valid expression.
+        # The stack won't be empty for cases like ((()
+        return not stack
+/*********************************************************************************************/
