@@ -516,3 +516,271 @@ Multiple balanced parentheses
         # The stack won't be empty for cases like ((()
         return not stack
 /*********************************************************************************************/
+
+****longest valid parentheses ********************************************************/
+def longestValidParentheses(s):
+        stack = []
+        lastError = -1
+        longestValidParentheses = 0
+        for i in range(0, len(s)):
+            if s[i] =='(':
+                stack.append(i)
+            else:
+                if len(stack) == 0:
+                    lastError = i;
+                else:
+                    stack.pop()
+                    if len(stack)==0:
+                        validTill = lastError
+                    else:
+                         validTill = stack[-1]
+                    longestValidParentheses = max(longestValidParentheses, i-validTill)
+        return longestValidParenthese
+
+/*************************************************************************/
+/**** smallest subarray with a given sum *********************************/
+
+def smallestSubWithSum(arr, n, x): 
+  
+    # Initilize length of smallest 
+    # subarray as n+1 
+    min_len = n + 1
+  
+    # Pick every element as starting point 
+    for start in range(0,n): 
+      
+        # Initialize sum starting  
+        # with current start 
+        curr_sum = arr[start] 
+  
+        # If first element itself is greater 
+        if (curr_sum > x): 
+            return 1
+  
+        # Try different ending points 
+        # for curremt start 
+        for end in range(start+1,n): 
+          
+            # add last element to current sum 
+            curr_sum += arr[end] 
+  
+            # If sum becomes more than x  
+            # and length of this subarray 
+            # is smaller than current smallest 
+            # length, update the smallest  
+            # length (or result) 
+            if curr_sum > x and (end - start + 1) < min_len: 
+                min_len = (end - start + 1) 
+          
+    return min_len;
+/*************************************************************************/
+
+Longest consecutive sequence — should check if end = start + 1 for the comparison arr[end] == (arr[start] + 1)
+
+def longrestconsecutiveseq(arr):
+   max_seq = 0
+   for start in range(len(arr)):
+      seq = 1
+      for end in range(start+1,len(arr)):
+         if (arr[end] == (arr[start] + 1)) or (arr[end] == prev + 1):
+           seq = seq + 1
+         else:
+           break
+   
+         if seq > max_seq:
+           max_seq = seq 
+         prev =  arr[end] 
+
+   return max_seq
+
+/***************************************************************************/
+Valid palindrome consider only alpha numeric character 
+
+
+def palindroine_alpha(str):
+   l = [c.lower() for c in str if c.isalnum()]
+   return l == l[::-1]
+/**********************************************************************************************/
+Remove duplicates from a sorted array  in place , juts one value
+
+def removeDuplicates(nums):
+        i = 0
+        while(i <= len(nums)-2):
+            if(nums[i] == nums[i+1]):
+                nums.pop(i)
+                i -= 1
+            i+=1
+        return len(nums)
+
+/*****************************************************************************************************/
+Remove all occurrences of a number in place in a list
+
+import collections
+def removeallinstances(nums,val):
+        i = 0
+        c = collections.Counter(nums)
+        no_val = c[val]
+        for i in range(no_val+1):
+          if val in nums:
+            nums.remove(val)
+        return nums  
+
+/*********************************************************************************************************/
+
+Longest substr without repeating characters
+
+def longrestconsecutiveseq(arr):
+   max_len = 0
+   c = {}
+   length = 0
+   for i in range(len(arr)):
+     if arr[i] not in c:
+       c[arr[i]] = 1
+       length = length + 1
+     else:
+       length = 1
+       c.clear()
+       c[arr[i]] = 1
+       #print(c)
+       continue
+     if length > max_len:
+       max_len = length
+     #print(i)
+     #print(c)    
+   return max_len 
+
+/**********************************************************************************/
+# Python program to find the longest substring with k unique 
+# characters in a given string 
+MAX_CHARS = 26
+  
+# This function calculates number of unique characters 
+# using a associative array count[]. Returns true if 
+# no. of characters are less than required else returns 
+# false. 
+def isValid(count, k): 
+    val = 0
+    for i in xrange(MAX_CHARS): 
+        if count[i] > 0: 
+            val += 1
+  
+    # Return true if k is greater than or equal to val 
+    return (k >= val) 
+  
+# Finds the maximum substring with exactly k unique characters 
+def kUniques(s, k): 
+    u = 0    # number of unique characters 
+    n = len(s) 
+  
+    # Associative array to store the count 
+    count = [0] * MAX_CHARS 
+  
+    # Tranverse the string, fills the associative array 
+    # count[] and count number of unique characters 
+    for i in xrange(n): 
+        if count[ord(s[i])-ord('a')] == 0: 
+            u += 1
+        count[ord(s[i])-ord('a')] += 1
+  
+    # If there are not enough unique characters, show 
+    # an error message. 
+    if u < k: 
+        print "Not enough unique characters"
+        return
+  
+    # Otherwise take a window with first element in it. 
+    # start and end variables. 
+    curr_start = 0
+    curr_end = 0
+  
+    # Also initialize values for result longest window 
+    max_window_size = 1
+    max_window_start = 0
+  
+    # Initialize associative array count[] with zero 
+    count = [0] * len(count) 
+  
+    count[ord(s[0])-ord('a')] += 1    # put the first character 
+  
+    # Start from the second character and add 
+    # characters in window according to above 
+    # explanation 
+    for i in xrange(1,n): 
+        # Add the character 's[i]' to current window 
+        count[ord(s[i])-ord('a')] += 1
+        curr_end+=1
+  
+        # If there are more than k unique characters in 
+        # current window, remove from left side 
+        while not isValid(count, k): 
+            count[ord(s[curr_start])-ord('a')] -= 1
+            curr_start += 1
+  
+        # Update the max window size if required 
+        if curr_end-curr_start+1 > max_window_size: 
+            max_window_size = curr_end-curr_start+1
+            max_window_start = curr_start 
+  
+    print "Max substring is : " + s[max_window_start:] \ 
+            + " with length " + str(max_window_size
+/********************************************************/
+
+Longest common prefix
+def longestCommonPrefix(self, strs):
+
+    longest_pre = ""
+
+    if not strs: return longest_pre
+
+    shortest_str = min(strs, key=len)
+
+    for i in range(len(shortest_str)):
+
+        if all([x.startswith(shortest_str[:i+1]) for x in strs]):
+
+            longest_pre = shortest_str[:i+1]
+
+        else:
+
+            break
+
+    return longest_pre
+
+/************************************************************/
+
+Python program to compare two version number 
+  
+# Method to compare two versions. 
+# Return 1 if v2 is smaller, 
+# -1 if v1 is smaller,, 
+# 0 if equal 
+def versionCompare(v1, v2): 
+      
+    # This will split both the versions by '.' 
+    arr1 = v1.split(".") 
+    arr2 = v2.split(".") 
+  
+    # Initializer for the version arrays 
+    i = 0 
+      
+    # We have taken into consideration that both the 
+    # versions will contains equal number of delimiters 
+    while(i < len(arr1)): 
+          
+        # Version 2 is greater than version 1 
+        if int(arr2[i]) > int(arr1[i]): 
+            return -1
+          
+        # Version 1 is greater than version 2 
+        if int(arr1[i]) > int(arr2[i]): 
+            return 1
+  
+        # We can't conclude till now 
+        i += 1
+          
+    # Both the versions are equal 
+    return 0
+
+
+/******************************************************************/
+
