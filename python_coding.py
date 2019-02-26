@@ -784,3 +784,98 @@ def versionCompare(v1, v2):
 
 /******************************************************************/
 
+
+No of words Given , print the number of words in  on a new line ( first word starts with lower case and rest start with uppercase.
+For example oneTwoThree . There are  3  words in the string.
+ print(1+sum(1 for i in string if i.isupper()))
+/**************************************************************************************************/
+String password , find missing characters 
+def minimumNumber(n, password):
+    count = 0    
+    if any(i.isdigit() for i in password)==False:
+        count+=1
+    if any(i.islower() for i in password)==False:
+        count+=1
+    if any(i.isupper() for i in password)==False:
+        count+=1
+    if any(i in '!@#$%^&*()-+' for i in password)==False:
+        count+=1
+    return max(count,6-n)
+
+/**********keep two unique elements******************************************/
+from collections import Counter
+from itertools import combinations
+def is_valid(S):
+    c = Counter(S)
+    #print c
+    if len(c) != 2:
+        return False
+    for i in xrange(1, len(S)):
+        if S[i] == S[i-1]:
+            return False
+    return True
+
+def keep_letters(lista, keep):
+    return filter(lambda x: x in keep, lista)
+    
+N = int(raw_input())
+S = list(raw_input().strip())
+
+letters = {x: 1 for x in S}
+letters = list(combinations(letters.keys(), 2))
+#print letters
+L = list(S)
+first = True
+m = 0
+for keep in letters:
+    #print list(S)
+    lista = keep_letters(list(S), keep)
+    #print lista
+    if is_valid(lista):
+        m = max(m, len(lista))
+    
+    
+print m
+/*************************************************************************************/
+Caesar Cipher
+https://www.hackerrank.com/challenges/caesar-cipher-1/problem
+shifts each letter by a number of letters. 
+
+def main():
+      l = input()
+      st = input()
+      s = int(input())
+      l_s = [chr(i) for i in range(ord('a'),ord('z')+1)]
+      l_b = [chr(i) for i in range(ord('A'),ord('Z')+1)]
+      cpy = ""
+      for i in st:
+            if i in l_s:
+                  cpy += l_s[(l_s.index(i)+s)%26]
+            elif i in l_b:
+                  cpy += l_b[(l_b.index(i)+s)%26]
+            else:
+                  cpy += i
+      print (cpy)
+
+if __name__ == "__main__":
+      main()
+           
+————————————————————————————————————————————————————————————-----------------------------------------------
+. This sentence is known as a pangram because it contains every letter of the alphabet.
+def pangrams(str):
+  l_a = [chr(i) for i in range(ord('a'), ord('z')+ 1)]   
+  new_str = str.lower()
+  new_dict = {i:1 for i in str if i in l_a} 
+  dict_len = len(new_dict)
+  return  dict_len == 26
+
+———————————————————————————————————————————————————————————————————————-------------------------------------
+A weighted string is a string of lowercase English letters where each letter has a weight. Character weights are  to  from  to  as shown below:
+def weighstr(str):
+  dict = {chr(x):ord(chr(x)) - ord('a') + 1  for x in range(ord('a'),ord('z')+1)}
+  print(type(dict))
+
+  fin_sum = sum( dict.get(i,0) for i in str)
+  return fin_sum
+
+————————————————————————————————————————————--------------------------------------------------------
