@@ -879,3 +879,30 @@ def weighstr(str):
   return fin_sum
 
 ————————————————————————————————————————————--------------------------------------------------------
+Alternating Characters
+o change it into a string such that there are no matching adjacent characters
+t = int(raw_input())
+for j in range(t):
+	res=0
+	str = raw_input()
+	if 'A' not in str or 'B' not in str:
+		res = len(str)-1
+		print res
+		continue
+	i=0
+	while i<(len(str)-1):
+		if str[i+1]==str[i]:
+			res+=1
+		i+=1
+	print res
+————————————————————————————————————————————————————————————————————————————
+Count 010 pattern in a string
+
+def count_pattern(str):
+
+  if '010' not in str:
+    return 0
+  else:
+    return str.count('010')
+
+———————————————————————————————————————————————————————————————————————
