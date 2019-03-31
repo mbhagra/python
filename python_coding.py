@@ -906,3 +906,22 @@ def count_pattern(str):
     return str.count('010')
 
 ———————————————————————————————————————————————————————————————————————
+/**** string with unique characyters*************/
+								 
+	def uniquestring(str):
+  c = {}
+  uniq = 1
+  for i in str:
+    if i not in c:
+       c[i] = 1
+    else:
+     uniq = 0 
+  return uniq == 1    
+------------------------------------------------------------------------------------------------------------------
+string anagram							 
+def anagram(str1,str2):
+  a = sorted(str1)
+  b = sorted(str2)
+  return a == b  
+---------------------------------------------------------------------------------------------------------								 
+								 
