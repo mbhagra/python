@@ -924,4 +924,29 @@ def anagram(str1,str2):
   b = sorted(str2)
   return a == b  
 ---------------------------------------------------------------------------------------------------------								 
-								 
+/**** Remove dups from unsorted linked list*********/								 
+def removeDuplicates(linkedList):
+    previousNode = linkedList.head
+    currentNode = previousNode.nextNode
+
+    #set() is like dictionary in python but without value.
+    #it stores unique keys using hashmap
+    #so searching takes O(1) time
+    keys = set([previousNode.data])
+
+    while currentNode:
+        data = currentNode.data
+
+        if data in keys:
+            #this is duplicate node, so discard it
+            previousNode.nextNode = currentNode.nextNode
+            currentNode = currentNode.nextNode
+        else:
+            #put the node data in keys set and move forword
+            keys.add(data)
+            previousNode = currentNode
+            currentNode = currentNode.nextNode
+
+    print "After removing the duplicates:"
+    linkedList.printList()
+---------------------------------------------------------------------------------------------------------------------								 
