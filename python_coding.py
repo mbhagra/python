@@ -951,12 +951,14 @@ def removeDuplicates(linkedList):
     linkedList.printList()
 ---------------------------------------------------------------------------------------------------------------------
 
-#balanced tree 
+#check if tree is balanced tree 
 								 
 https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
 								 
 ------------------------------------------------------------------------------------------------------------------------			 
 								 
+# gievn sorted array create a binary tee 
 								 
-								 https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/								 
+https://www.youtube.com/watch?v=VCTP81Ij-EM
+-----------------------------------------------------------------------------------------------------------------------								 
 								 
