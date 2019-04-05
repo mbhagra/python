@@ -949,4 +949,14 @@ def removeDuplicates(linkedList):
 
     print "After removing the duplicates:"
     linkedList.printList()
----------------------------------------------------------------------------------------------------------------------								 
+---------------------------------------------------------------------------------------------------------------------
+
+#balanced tree 
+								 
+https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
+								 
+------------------------------------------------------------------------------------------------------------------------			 
+								 
+								 
+								 https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/								 
+								 
