@@ -960,5 +960,20 @@ https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
 # gievn sorted array create a binary tee 
 								 
 https://www.youtube.com/watch?v=VCTP81Ij-EM
------------------------------------------------------------------------------------------------------------------------								 
+-----------------------------------------------------------------------------------------------------------------------	
+Group anagrams of string togher 
+								 
+								 def groupAnagrams(strs):
+        dict = {}        
+        for str in strs:
+            key_str = ''.join(sorted(str))
+            if key_str in dict:
+                dict[key_str].append(str)                
+            else:
+                dict[key_str] = [str]
+
+        return list(dict.values())
+								 
+------------------------------------------------------------------------------------------------
+								 
 								 
