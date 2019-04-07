@@ -993,4 +993,12 @@ Given an integer array nums, find the contiguous subarray (containing at least o
 height/max depth of a binary tree
 								 
 https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/								 
+------------------------------------------------------------------------------------------------------------
+
+ ctreate binary search tree from a sorted array 
+https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/discuss/35223/An-easy-Python-solution
+								 
+-----------------------------------------------------------------------------------------------------								 
+								 
+								 
 								 
