@@ -38,6 +38,7 @@ def rotate_left3(nums):
     nums[i-1] = nums[i]
   nums[len(nums)-1]  = first
 	
+	
 
 
 
@@ -989,3 +990,7 @@ Given an integer array nums, find the contiguous subarray (containing at least o
             								 
 								 
 -----------------------------------------------------------------------------------------------------------------
+height/max depth of a binary tree
+								 
+https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/								 
+								 
