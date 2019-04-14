@@ -534,7 +534,8 @@ def longestValidParentheses(s):
                     if len(stack)==0:
                         validTill = lastError
                     else:
-                         validTill = stack[-1]
+                         #validTill = stack[-1]
+		          validTill = len(stack) - 1		
                     longestValidParentheses = max(longestValidParentheses, i-validTill)
         return longestValidParenthese
 
