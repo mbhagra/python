@@ -1004,6 +1004,8 @@ https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/discuss
 Balanced  binary tree 
  https://www.afternerd.com/blog/python-check-tree-balanced/
 -------------------------------------------------------------------------------------------------------------							
-								 
+/**********************https://leetcode.com/problems/sum-root-to-leaf-numbers/****************/
+https://www.geeksforgeeks.org/sum-numbers-formed-root-leaf-paths/
+/********************************************************************************************/								 
 								 
 								 
